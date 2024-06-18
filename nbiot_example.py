@@ -4,9 +4,10 @@ from NBIOT.configuration import start_up_nbiot
 from NBIOT.send_cmd import send_cmd
 from serial import Serial
 
+from constants import NB_IOT_SERIAL_PORT
 
 
-NBIOT_port = Serial(port='COM19', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=5)
+NBIOT_port = Serial(port=NB_IOT_SERIAL_PORT, baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=5)
 
 cmd_response = send_cmd("AT", NBIOT_port,  print_response=True, ms_of_delay_after=100)
 
